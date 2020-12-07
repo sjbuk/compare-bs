@@ -39,6 +39,4 @@ function GroupDropdown(props: any) {
         </React.Fragment>
     );
 }
-
-
 export default GroupDropdown;
