@@ -49,7 +49,7 @@ function CompareTable(props: any) {
                 </thead>
                 <tbody>
                     {dataRows.map((dataRow: any, index) => (
-                        <tr>
+                        <tr key={dataRow._id}>
                             <td >{dataRow.group}</td>
                             <td>{dataRow.left}</td>
                             <td>{dataRow.right}</td>

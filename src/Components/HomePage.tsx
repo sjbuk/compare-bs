@@ -5,7 +5,7 @@ import GroupDropdown from './GroupDropdown';
 
 
 const HomePage = () => {
-    const [filterGroup, setFilterGroup] = useState("ALL");
+    const [filterGroup, setFilterGroup] = useState("__All");
 
     const selectedGroupChange = (group: string) =>{
         setFilterGroup (group);

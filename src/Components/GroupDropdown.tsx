@@ -30,9 +30,9 @@ function GroupDropdown(props: any) {
     return (
         <React.Fragment>
             <DropdownButton defaultValue="__All" title={selectedValue === "__All"? "Select Group" :selectedValue  } onSelect={handleSelect} >
-                <Dropdown.Item eventKey="__All" >ALL01</Dropdown.Item>
+                <Dropdown.Item eventKey="__All" key="__All">ALL</Dropdown.Item>
                 {dataRows.map((dataRow: string, index) => (
-                    <Dropdown.Item eventKey={dataRow}>{dataRow}</Dropdown.Item>
+                    <Dropdown.Item eventKey={dataRow} key={dataRow}>{dataRow}</Dropdown.Item>
                 ))}
 
             </DropdownButton>
