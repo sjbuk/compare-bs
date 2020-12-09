@@ -9,7 +9,7 @@ export const getByGroup = (group : string) => {
 };
 
 
-export const get = (id: string) => {
+export const  get = (id: string) => {
     return http.get(`comparison/${id}`);
 };
 
