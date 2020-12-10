@@ -1,7 +1,7 @@
 import http from "./http-common";
 
-export const getAll = () => {
-    return http.get("/comparisons");
+export const getAll = async () => {
+        return http.get("/comparisons");
 };
 
 export const getByGroup = (group : string) => {
@@ -15,6 +15,11 @@ export const  get = (id: string) => {
 
 export const getGroups = () =>{
     return http.get("/groups")
+};
+
+export const update = (dataRow: any) =>{
+    
+    return http.put(`/comparison/${dataRow._id}`,dataRow)
 };
 
 
