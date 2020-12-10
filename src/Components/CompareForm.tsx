@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import { Button } from 'react-bootstrap'
-import { get, update } from '../Service/CompareService'
+import { get, update, create } from '../Service/CompareService'
 
 
 
@@ -16,22 +16,36 @@ function CompareForm(props: any) {
 
     const retrieveData = () => {
         console.log(props.action);
-        if (props.action === "LoadRecord") {
-            get(props.recId)
-                .then(response => {
-                    console.log(response.data);
-                    setDataRow(response.data);
-                })
-                .catch(e => {
-                    console.log(e);
-                });
-            setButtonTitle("Update");
+        switch (props.action)  {
+            case "LoadRecord":
+                get(props.recId)
+                    .then(response => {
+                        console.log(response.data);
+                        setDataRow(response.data);
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+                setButtonTitle("Update");
+                break;
+            case "NewRecord":
+                setButtonTitle("Create");
+                break;
+
         }
     };
 
-    const updateData = () => {
-        update(dataRow).then(response =>{console.log(response);});
+    const formSubmit = () => {
+        switch (props.action)  {
+            case "LoadRecord":
+                update(dataRow).then(response =>{console.log(response);});
+                break;
+            case "NewRecord":
+                create(dataRow).then(response =>{console.log(response.data);})
+                break;
+        }
     }
+
     const handleControlChange = (e: any) => {
         const { id, value } = e.target
         console.log(`Value: ${value}`)
@@ -57,7 +71,7 @@ function CompareForm(props: any) {
                 <Form.Label>Right URL</Form.Label>
                 <Form.Control type="text" placeholder="Right URL" defaultValue={dataRow.right} onChange={handleControlChange}/>
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={updateData}>
+            <Button variant="primary" type="submit" onClick={formSubmit}>
                 {buttonTitle}
             </Button>
         </Form>

@@ -18,9 +18,13 @@ export const getGroups = () =>{
 };
 
 export const update = (dataRow: any) =>{
-    
     return http.put(`/comparison/${dataRow._id}`,dataRow)
 };
 
+export const create = (dataRow: any) =>{
+    //remove id for create
+    delete dataRow._id
+    return http.post("/comparison/",dataRow)
+};
 
 

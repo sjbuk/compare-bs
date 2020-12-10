@@ -7,7 +7,7 @@ const HomePage = () => {
     return (
         <React.Fragment>
             <h1> FORM PAGE </h1>
-            <CompareForm action="LoadRecord" recId="5fc93a5722517c5258195765"></CompareForm>
+            <CompareForm action="NewRecord" recId=""></CompareForm>
         </React.Fragment>
     );
 }
